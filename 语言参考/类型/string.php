@@ -41,10 +41,20 @@
 
 
 
-// 转换成字符串
-var_dump(strval(1)); // '1'
-var_dump(strval(1)); // '1'
-var_dump(strval(false)); // ''
-var_dump(strval(true)); // '1'
-var_dump(strval(array(10))); // Array
-var_dump(strval(null)); // ""
+// // 转换成字符串
+// var_dump(strval(1)); // '1'
+// var_dump(strval(1)); // '1'
+// var_dump(strval(false)); // ''
+// var_dump(strval(true)); // '1'
+// var_dump(strval(array(10))); // Array
+// var_dump(strval(null)); // ""
+
+
+
+// 使用 . 在字符串连接变量
+$str = 'str';
+$newStr = 'this is a newStr: ' . $str;
+print_r($newStr); // this is a newStr: str
+
+
+print_r("${str}");
