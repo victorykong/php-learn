@@ -100,7 +100,7 @@
 // print_r($arr);
 
 // // 引用
-// $clone = &$arr; // 深拷贝
+// $clone = &$arr; 
 // $clone[0] = [0];
 // print_r($clone);
 // print_r($arr);
