@@ -9,11 +9,10 @@ $config = [
     'id' => 'victorykong-study-yii2-basic',
     'basePath' => dirname(__DIR__), // "/opt/victorykong-study/php/html/yii2/basic"
     'params' => $params,
-    'defaultRoute'=> 'study',
-
-
-
-    'bootstrap' => ['log'],
+    'defaultRoute' => 'study', // 默认为 site
+    'layout' => 'layout',
+//    'bootstrap' => ['log', 'mytest'], // 将会在每次处理请求前都进行实例化
+    'bootstrap' => ['log'], // 将会在每次处理请求前都进行实例化
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -22,6 +21,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'HW8XSUbf2dDGSgi7bqAahh9w0oruclET',
+            "enableCsrfValidation" => false
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -50,14 +50,22 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//            ],
+//        ],
+
+        // 自定义组件（只会在第一次访问时实例化）
+//        'mytest' => [
+//            'class' => 'app\components\Test'
+//        ]
+        'mytest' => function () {
+            return new app\components\Test();
+        }
+
+
     ],
 
 
